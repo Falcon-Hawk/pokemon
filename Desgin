@@ -1,0 +1,57 @@
+//
+//  ContentView.swift
+//  Random Pokemon
+//
+//  Created by Nayef on 1/28/22.
+//
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        HStack(){
+            Cardview()
+            Cardview()
+            Cardview()
+        }.padding(.horizontal, 4.0)
+        .foregroundColor(.blue)
+        .opacity(1)
+        .cornerRadius(41)
+    }
+}
+struct secondStake: View {
+    var body: some View {
+        HStack(){
+            Cardview()
+            Cardview()
+            Cardview()
+        }.padding(.horizontal, 4.0)
+        .foregroundColor(.blue)
+        .opacity(1)
+        .cornerRadius(41)
+    }
+}
+struct Cardview: View{
+    @State var isFaceup: Bool = true
+    var body: some View {
+        ZStack{
+            let shape = Circle()
+            if isFaceup{
+            Image ("thunder").resizable().frame(width: 75 , height: 75 )
+            shape.frame(width: 100, height: 100 ).foregroundColor(Color.red).opacity(0.15)
+            shape.stroke(lineWidth: 3)
+            }  else {
+                shape.fill().frame(width: 100, height: 100 ).opacity(0.80)
+                shape.stroke(lineWidth: 3).foregroundColor(Color.red )
+                Image ("ball").resizable().frame(width: 75 , height: 75 )
+            }
+        }.onTapGesture{
+            isFaceup = !isFaceup
+    }
+    }
+    
+}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
